@@ -1,0 +1,21 @@
+
+
+<p><strong>Member list</strong></p>
+
+<mat-spinner *ngIf="!membersList"></mat-spinner>
+
+<ul>
+    <li *ngFor="let member of membersList"> 
+        <a> {{member.id}} </a>
+        <a> {{member.lastName}} </a>
+        <a> {{member.firstName}} </a>
+        <a> - {{member.role}} </a>
+        <span class="example-spacer"></span>    
+        <button mat-icon-button color="warn" routerLink="/members/{{member.id}}">
+            <mat-icon>open_in_new</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" (click)="deleteMember(member.id)" >
+            <mat-icon>delete</mat-icon>
+        </button>
+    </li>
+</ul>

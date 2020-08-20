@@ -1,0 +1,35 @@
+<p><strong>Create Member</strong></p>
+
+<form (ngSubmit)="create()"  [formGroup] = "memberForm">
+    <mat-form-field appearance="fill">
+        <mat-label>Fist Name</mat-label>
+        <input matInput placeholder="" formControlName="firstName">
+        <mat-error *ngIf="memberForm.controls.firstName.hasError('required')">FirstName is required</mat-error>
+        <mat-error *ngIf="memberForm.controls.firstName.hasError('minlength')">FirstName is min 3</mat-error>
+      </mat-form-field>
+      <br/>
+      <mat-form-field appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input matInput placeholder="" formControlName="lastName">
+        <mat-error *ngIf="memberForm.controls.lastName.hasError('required')">FirstName is required</mat-error>
+        <mat-error *ngIf="memberForm.controls.lastName.hasError('minlength')">FirstName is min 1</mat-error>
+      </mat-form-field>
+      <br/>
+      <mat-form-field appearance="fill">
+        <mat-label>Role</mat-label>
+        <mat-select formControlName="role">          
+          <mat-option *ngFor="let role of ['user','admin']" [value]="role">
+            {{role}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="memberForm.controls.role.hasError('required')">Role is required</mat-error>        
+      </mat-form-field>
+      <br/>
+    <button [disabled]="memberForm.valid" mat-icon-button color="primary" >
+        Create a member         
+    </button>    
+</form>
+<mat-spinner *ngIf="memberForm.valid"></mat-spinner>
+
+
+
