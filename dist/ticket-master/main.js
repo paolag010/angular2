@@ -39,7 +39,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const routes = [];
+const routes = [
+    {
+        path: "**",
+        redirectTo: "/members"
+    }
+];
 class AppRoutingModule {
 }
 AppRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: AppRoutingModule });
